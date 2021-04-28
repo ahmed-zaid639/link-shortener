@@ -4,7 +4,7 @@ This is an open source project from [DevProjects](http://www.codementor.io/proje
 Find the project requirements here: [{Link Shortener Website](https://www.codementor.io/projects/web/link-shortener-website-brqjanf6zq/get-started)
 
 ## Tech/framework used
-Built with HTML, CSS,  JavaScript, and Bootstrap.
+Built with HTML, CSS,  JavaScript.
 
 ## Screenshots and demo
 Screenshots of your app and/or a link to your live demo
