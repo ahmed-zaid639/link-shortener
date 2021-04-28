@@ -7,10 +7,11 @@ Find the project requirements here: [{Link Shortener Website](https://www.codeme
 Built with HTML, CSS,  JavaScript.
 
 ## Screenshots and demo
-Screenshots of your app and/or a link to your live demo
+
+https://codepen.io/annecburke/full/OJWYLMW
 
 ## Installation
-Instructions for other developers on how to install and run your code on their local environment.
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
