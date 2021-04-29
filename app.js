@@ -15,53 +15,22 @@ button.addEventListener("click", (event) => {
   if(input.value) {
     shorten(input.value);
   } else {
-    errorMessage.textContent = "Please enter a valid URL.";
     showError();
+    hideResult();
   }
 })
-
-clearButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  clearFields();
-})
-
-
-/* Clipboard functions */
-
-const clipboard = new ClipboardJS("#copy-btn");
-
-clipboard.on('success', function(e) {
-    console.info('Action:', e.action);
-    console.info('Text:', e.text);
-    console.info('Trigger:', e.trigger);
-
-    e.clearSelection();
-});
-
-clipboard.on('error', function(e) {
-    console.error('Action:', e.action);
-    console.error('Trigger:', e.trigger);
-});
-
 
 /* function to handle errors */
 const handleError = (response) => {
   console.log(response);
   if(!response.ok) {
-    if(resultDiv.style.display !== "none") {
-      hideResult();
-      showError();
-    }
+    errorMessage.textContent = "Please enter a valid URL."
     showError();
-  }
+    hideResult();
+  } else {
   hideError();
   return response;
-}
-
-const clearFields = () => {
-  input.value = '';
-  hideResult();
-  hideError();
+  }
 }
 
 /* function to get shortened url with input "url" with fetch and deal with error */
@@ -86,17 +55,45 @@ const shorten = (input) => {
 }
 
 
-/* function to display result */
+/* Clipboard functions */
+
+const clipboard = new ClipboardJS("#copy-btn");
+
+clipboard.on('success', function(e) {
+    console.info('Action:', e.action);
+    console.info('Text:', e.text);
+    console.info('Trigger:', e.trigger);
+
+    e.clearSelection();
+});
+
+clipboard.on('error', function(e) {
+    console.error('Action:', e.action);
+    console.error('Trigger:', e.trigger);
+});
+
+/* Clear fields */
+const clearFields = () => {
+  input.value = '';
+  hideResult();
+  hideError();
+}
+
+clearButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  clearFields();
+})
+
+
+/* display/hide results and errors */
 const showResult = () => {
   shortUrl.style.display = "flex";
 }
 
-/* function to hide result*/
 const hideResult = () => {
   shortUrl.style.display = "none";
 }
 
-/* function to show error */
 const showError = () => {
   errorDiv.style.display = "block";
 }
@@ -105,4 +102,3 @@ const hideError = () => {
   errorDiv.style.display = "none";
 }
 
-/* function to copy new url*/
